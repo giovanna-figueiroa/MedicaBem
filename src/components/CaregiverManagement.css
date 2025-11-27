@@ -1,0 +1,522 @@
+.caregiver-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.caregiver-container h1 {
+  margin: 0 0 24px 0;
+  color: #1a1a1a;
+  font-size: 28px;
+}
+
+/* Form Section */
+.form-section {
+  margin-bottom: 32px;
+}
+
+.btn-add-caregiver {
+  padding: 12px 24px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 16px;
+}
+
+.btn-add-caregiver:hover {
+  background-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+}
+
+.caregiver-form {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 10px 12px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.submit-btn {
+  padding: 12px 24px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.submit-btn:hover {
+  background-color: #4338ca;
+}
+
+/* Caregivers List */
+.caregivers-list-section {
+  margin-bottom: 24px;
+}
+
+.empty-state {
+  background: white;
+  border-radius: 12px;
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #999;
+  font-size: 16px;
+}
+
+.caregivers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.caregiver-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.caregiver-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.caregiver-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.caregiver-info h3 {
+  margin: 0 0 4px 0;
+  color: #1a1a1a;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.caregiver-info .relationship {
+  margin: 0;
+  color: #666;
+  font-size: 13px;
+}
+
+.caregiver-type-badge {
+  background-color: #e0e7ff;
+  color: #4f46e5;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.caregiver-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex: 1;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 13px;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-item .label {
+  color: #666;
+  font-weight: 500;
+}
+
+.detail-item .value {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.status-badge {
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background-color: #d1fae5;
+  color: #047857;
+}
+
+.status-badge.inactive {
+  background-color: #fee2e2;
+  color: #dc2626;
+}
+
+.caregiver-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.btn-test,
+.btn-report,
+.btn-email,
+.btn-delete {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-test {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.btn-test:hover {
+  background-color: #fcd34d;
+}
+
+.btn-report {
+  background-color: #dbeafe;
+  color: #0369a1;
+}
+
+.btn-report:hover {
+  background-color: #bfdbfe;
+}
+
+.btn-email {
+  background-color: #e0e7ff;
+  color: #3730a3;
+}
+
+.btn-email:hover {
+  background-color: #c7d2fe;
+}
+
+.btn-delete {
+  background-color: #fee2e2;
+  color: #dc2626;
+  flex: 0 0 auto;
+  width: 40px;
+  padding: 8px;
+}
+
+.btn-delete:hover {
+  background-color: #fecaca;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.modal-header h2 {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 20px;
+}
+
+.btn-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.btn-close:hover {
+  color: #1a1a1a;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.report-recipient {
+  margin: 0 0 20px 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.report-recipient strong {
+  color: #4f46e5;
+}
+
+.report-preview {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #333;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin-bottom: 20px;
+}
+
+.report-header {
+  margin-bottom: 16px;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.report-header h3 {
+  margin: 0 0 8px 0;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.report-header p {
+  margin: 0;
+  font-size: 12px;
+  color: #666;
+  text-align: center;
+}
+
+.report-stats {
+  margin-bottom: 16px;
+  padding: 12px;
+  background: white;
+  border-radius: 4px;
+}
+
+.report-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.report-stat .label {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.report-stat .value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.progress-bar {
+  height: 4px;
+  background-color: #e5e7eb;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #10b981;
+  transition: width 0.3s ease;
+}
+
+.report-daily h4 {
+  margin: 16px 0 8px 0;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.daily-items {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.daily-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  padding: 6px 0;
+}
+
+.daily-item .day {
+  font-weight: 600;
+}
+
+.daily-item .percentage {
+  text-align: right;
+  font-weight: 700;
+  color: #4f46e5;
+}
+
+.daily-item .details {
+  text-align: right;
+  font-size: 11px;
+  color: #999;
+}
+
+.report-footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+  font-size: 11px;
+  color: #999;
+}
+
+.report-footer p {
+  margin: 0;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.btn-cancel,
+.btn-send {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel {
+  background-color: #e5e7eb;
+  color: #1a1a1a;
+}
+
+.btn-cancel:hover {
+  background-color: #d1d5db;
+}
+
+.btn-send {
+  background-color: #4f46e5;
+  color: white;
+}
+
+.btn-send:hover {
+  background-color: #4338ca;
+}
+
+@media (max-width: 768px) {
+  .caregivers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-content {
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .caregiver-actions {
+    flex-direction: column;
+  }
+
+  .btn-delete {
+    width: 100%;
+  }
+
+  .daily-item {
+    grid-template-columns: 1fr;
+  }
+
+  .daily-item .percentage,
+  .daily-item .details {
+    text-align: left;
+  }
+}

@@ -1,0 +1,265 @@
+.medicine-form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 16px;
+}
+
+.medicine-form-container h2 {
+  margin: 0;
+  color: #1a1a1a;
+  font-size: 24px;
+}
+
+.btn-cancel-edit {
+  padding: 10px 16px;
+  background-color: #fee2e2;
+  color: #dc2626;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-cancel-edit:hover {
+  background-color: #fecaca;
+}
+
+.medicine-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  padding: 10px 12px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 14px;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  font-family: inherit;
+}
+
+.submit-btn {
+  padding: 12px 24px;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.submit-btn:hover:not(:disabled) {
+  background-color: #4338ca;
+}
+
+.submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Schedule Section */
+.schedule-section {
+  background-color: #f0f9ff;
+  border: 1px solid #bfdbfe;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+  grid-column: 1 / -1;
+}
+
+.schedule-section h3 {
+  margin: 0 0 16px 0;
+  color: #1a1a1a;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.schedule-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.days-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.days-selector label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.day-checkbox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.day-checkbox input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #4f46e5;
+}
+
+.day-checkbox span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+}
+
+.btn-add-schedule {
+  padding: 10px 16px;
+  background-color: #dbeafe;
+  color: #0369a1;
+  border: 1px solid #7dd3fc;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  grid-column: 1 / -1;
+}
+
+.btn-add-schedule:hover {
+  background-color: #bfdbfe;
+  border-color: #38bdf8;
+}
+
+.schedules-list {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #bfdbfe;
+}
+
+.schedules-list h4 {
+  margin: 0 0 12px 0;
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.schedule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.schedule-info {
+  display: flex;
+  gap: 16px;
+  flex: 1;
+}
+
+.schedule-info .time {
+  font-weight: 600;
+  color: #4f46e5;
+}
+
+.schedule-info .days {
+  color: #666;
+}
+
+.btn-remove-schedule {
+  padding: 4px 8px;
+  background: none;
+  border: none;
+  color: #ef4444;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.btn-remove-schedule:hover {
+  color: #dc2626;
+}
+
+@media (max-width: 768px) {
+  .schedule-form {
+    grid-template-columns: 1fr;
+  }
+
+  .days-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .schedule-info {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .btn-add-schedule {
+    grid-column: 1;
+  }
+}

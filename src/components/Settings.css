@@ -1,0 +1,150 @@
+.settings-container {
+  margin-bottom: 32px;
+}
+
+.settings-container h1 {
+  margin: 0 0 24px 0;
+  color: #1a1a1a;
+  font-size: 28px;
+}
+
+.settings-section {
+  display: grid;
+  gap: 20px;
+}
+
+.settings-card {
+  background: white;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid #4f46e5;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.settings-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.settings-card.danger {
+  border-left-color: #ef4444;
+}
+
+.settings-card.info {
+  border-left-color: #3b82f6;
+}
+
+.card-header {
+  margin-bottom: 16px;
+}
+
+.card-header h2 {
+  margin: 0 0 8px 0;
+  color: #1a1a1a;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.card-description {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.warning-box {
+  display: flex;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+  align-items: flex-start;
+}
+
+.warning-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.warning-text {
+  font-size: 14px;
+  color: #7f1d1d;
+  line-height: 1.5;
+}
+
+.warning-text strong {
+  color: #dc2626;
+}
+
+.btn-clear-data {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: fit-content;
+}
+
+.btn-clear-data:hover {
+  background: #dc2626;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.btn-clear-data:active {
+  transform: translateY(0);
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-item .label {
+  font-weight: 500;
+  color: #666;
+  font-size: 14px;
+}
+
+.info-item .value {
+  color: #1a1a1a;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .settings-container h1 {
+    font-size: 24px;
+  }
+
+  .settings-card {
+    padding: 16px;
+  }
+
+  .card-header h2 {
+    font-size: 18px;
+  }
+
+  .btn-clear-data {
+    width: 100%;
+    text-align: center;
+  }
+}
