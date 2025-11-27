@@ -59,16 +59,6 @@ export function Dashboard() {
             <div className="stat-value">{medicineService.getAllMedicines().reduce((s, m) => s + m.quantity, 0)}</div>
           </div>
         </div>
-
-        <div className="stat-card">
-          <div className="stat-icon expiring-icon">⏰</div>
-          <div className="stat-content">
-            <div className="stat-label">Vencendo em 30 dias</div>
-            <div className="stat-value" style={{ color: medicineService.getExpiringSoon().length > 0 ? '#f59e0b' : '#10b981' }}>
-              {medicineService.getExpiringSoon().length}
-            </div>
-          </div>
-        </div>
       </div>
 
       <div className="today-section">
