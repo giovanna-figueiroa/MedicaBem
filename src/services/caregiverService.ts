@@ -83,6 +83,45 @@ export const caregiverService = {
 
   // Backend report email removido - usar somente EmailJS
 
+  // Send alert email via EmailJS
+  sendAlertEmail: async (
+    caregiverEmail: string,
+    medicineName: string,
+    dosage: string,
+    scheduledTime: string
+  ): Promise<{ success: boolean; message: string }> => {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_ALERT_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const testMode = import.meta.env.VITE_EMAILJS_TEST_MODE === 'true';
+
+    if (testMode) {
+      return { success: true, message: `[TEST MODE] Alerta simulado para ${caregiverEmail}` };
+    }
+
+    if (!serviceId || !templateId || !publicKey) {
+      return { success: false, message: 'EmailJS não configurado para ALERTA. Defina SERVICE_ID, ALERT_TEMPLATE_ID e PUBLIC_KEY.' };
+    }
+
+    const params = {
+      to_email: caregiverEmail,
+      alert_type: 'Medicamento Pendente',
+      medicine_name: medicineName,
+      dosage: dosage,
+      scheduled_time: scheduledTime,
+      alert_message: `O medicamento ${medicineName} (${dosage}) estava programado para ${scheduledTime} e não foi tomado há mais de 5 minutos.`,
+      generated_at: new Date().toLocaleString('pt-BR'),
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, params, publicKey);
+      return { success: true, message: `Alerta enviado para ${caregiverEmail}` };
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Falha ao enviar alerta';
+      return { success: false, message: `Erro: ${msg}` };
+    }
+  },
+
   // Send weekly report via EmailJS (frontend-only)
   sendWeeklyReportViaEmailJS: async (
     caregiverEmail: string,
@@ -91,8 +130,13 @@ export const caregiverService = {
     weeklyData: { [key: string]: { taken: number; scheduled: number } }
   ): Promise<{ success: boolean; message: string }> => {
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; // weekly report template
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    const testMode = import.meta.env.VITE_EMAILJS_TEST_MODE === 'true';
+
+    if (testMode) {
+      return { success: true, message: `[TEST MODE] Relatório simulado para ${caregiverEmail}` };
+    }
 
     if (!serviceId || !templateId || !publicKey) {
       return {

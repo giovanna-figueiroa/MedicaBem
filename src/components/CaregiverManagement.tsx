@@ -81,27 +81,7 @@ export function CaregiverManagement() {
     }
   };
 
-  const handleSendWeeklyReportEmail = async (caregiver: Caregiver) => {
-    if (!caregiver.email) {
-      alert('Este cuidador não tem um e-mail cadastrado');
-      return;
-    }
-
-    try {
-      const weeklyData = adherenceService.getWeeklyReport();
-      // Prefer EmailJS (frontend-only) if configured; fallback to backend
-      const result = await caregiverService.sendWeeklyReportViaEmailJS(
-        caregiver.email,
-        'Paciente',
-        weeklyData.weeklyAdherence,
-        weeklyData.dailyData
-      );
-      alert(result.message);
-    } catch (error) {
-      alert('Erro ao enviar relatório por e-mail');
-      console.error(error);
-    }
-  };
+  // Email button removido; envio de relatório é feito pelo modal
 
   const weeklyReport = adherenceService.getWeeklyReport();
 
@@ -246,15 +226,6 @@ export function CaregiverManagement() {
                   >
                     📊 Relatório
                   </button>
-                  {caregiver.email && (
-                    <button
-                      className="btn-email"
-                      onClick={() => handleSendWeeklyReportEmail(caregiver)}
-                      title="Enviar relatório semanal por e-mail"
-                    >
-                      📧 E-mail
-                    </button>
-                  )}
                   <button
                     className="btn-delete"
                     onClick={() => handleDeleteCaregiver(caregiver.id)}

@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { Dashboard, MedicineForm, MedicineList, SearchBar, HealthSummary, CaregiverManagement, Settings } from './components'
 import { medicineService } from './services/medicineService'
+import { alertService } from './services/alertService'
+import { caregiverService } from './services/caregiverService'
 import type { Medicine, MedicineFormData } from './types'
 import './App.css'
 
@@ -12,6 +14,24 @@ function App() {
 
   useEffect(() => {
     loadMedicines()
+    
+    // Start alert monitoring
+    const intervalId = alertService.startMonitoring()
+
+    // Hook de teste: window.triggerAlertTest()
+    ;(window as any).triggerAlertTest = () => {
+      const caregivers = caregiverService.getAllCaregivers()
+      const meds = medicineService.getAllMedicines()
+      const result = alertService.triggerTestAlert(caregivers, meds)
+      alert(result.message)
+      return result
+    }
+    
+    // Cleanup on unmount
+    return () => {
+      clearInterval(intervalId)
+      delete (window as any).triggerAlertTest
+    }
   }, [])
 
   const loadMedicines = () => {
