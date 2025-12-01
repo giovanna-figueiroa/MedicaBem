@@ -1,6 +1,7 @@
 import { medicineService } from './medicineService';
 import { adherenceService } from './adherenceService';
 import { caregiverService } from './caregiverService';
+import type { Medicine } from '../types';
 
 const ALERT_TRACKING_KEY = 'alert_tracking';
 
@@ -125,7 +126,7 @@ export const alertService = {
   },
   
   // Dispara um alerta de teste imediato para validar EmailJS
-  triggerTestAlert(caregivers: { email?: string }[], medicines: { name: string; dosage: string; scheduledTime: string }[]): { success: boolean; message: string } {
+  triggerTestAlert(caregivers: { email?: string }[], medicines: Medicine[]): { success: boolean; message: string } {
     try {
       const caregiver = caregivers.find(c => !!c.email);
       if (!caregiver || !caregiver.email) {
@@ -135,11 +136,17 @@ export const alertService = {
       if (!med) {
         return { success: false, message: 'Nenhum medicamento encontrado para teste.' };
       }
+      // Derivar um horário (pega primeiro schedule ativo ou horário atual)
+      let derivedTime = new Date().toLocaleTimeString('pt-BR', { hour: '2-digit', minute: '2-digit' });
+      if (med.schedule && med.schedule.length > 0) {
+        const first = med.schedule.find(s => s.active) || med.schedule[0];
+        if (first?.time) derivedTime = first.time;
+      }
       void caregiverService.sendAlertEmail(
         caregiver.email,
         med.name,
         med.dosage,
-        med.scheduledTime || new Date().toLocaleTimeString('pt-BR')
+        derivedTime
       );
       return { success: true, message: `Alerta de teste disparado para ${caregiver.email}` };
     } catch {

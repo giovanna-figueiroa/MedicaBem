@@ -1,4 +1,4 @@
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import type { Caregiver, CaregiverFormData } from '../types';
 
 const CAREGIVER_KEY = 'caregivers_data';
