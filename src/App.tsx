@@ -82,8 +82,8 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <h1 className="app-title">💊 Gerenciador de Medicamentos</h1>
-          <p className="app-subtitle">Sistema de controle de estoque de medicamentos</p>
+          <h1 className="app-title">💊 Medica Bem</h1>
+          <p className="app-subtitle">Acompanhe horários, estoques e adesão ao tratamento com alertas inteligentes para cuidadores.</p>
         </div>
       </header>
 
